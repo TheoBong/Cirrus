@@ -25,15 +25,4 @@ public class ComponentHelper {
     final Component deserialize = GsonComponentSerializer.gson().deserialize(title);
     return removeItalic(deserialize);
   }
-
-  public void fixItalic(BaseItemStack itemStack) {
-    final List<Component> loreRaw = itemStack.lore(false);
-    final List<Component> fixedLore = loreRaw
-        .stream()
-        .map(ComponentHelper::removeItalic)
-        .toList();
-    itemStack.lore(fixedLore, false);
-    Component displayName = itemStack.displayName(false);
-    itemStack.displayName(removeItalic(displayName));
-  }
 }

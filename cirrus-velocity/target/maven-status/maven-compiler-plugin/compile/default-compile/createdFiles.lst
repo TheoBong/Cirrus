@@ -1,0 +1,8 @@
+dev\simplix\cirrus\velocity\converters\PlayerUniqueIdConverter.class
+dev\simplix\cirrus\velocity\CirrusVelocity.class
+dev\simplix\cirrus\velocity\converters\ItemStackConverter.class
+dev\simplix\cirrus\velocity\converters\PlayerConverter.class
+dev\simplix\cirrus\velocity\protocolize\ProtocolizeMenuBuilder.class
+dev\simplix\cirrus\velocity\VelocityPlayerWrapper.class
+dev\simplix\cirrus\velocity\listener\QuitListener.class
+dev\simplix\cirrus\velocity\converters\ItemModelConverter.class

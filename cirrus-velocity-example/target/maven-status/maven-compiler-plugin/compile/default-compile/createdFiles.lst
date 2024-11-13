@@ -1,0 +1,5 @@
+velocity-plugin.json
+dev\simplix\cirrus\velocity\example\commands\TestCommand.class
+dev\simplix\cirrus\velocity\example\CirrusExamplePlugin.class
+dev\simplix\cirrus\velocity\example\menus\ExampleMenu.class
+dev\simplix\cirrus\velocity\example\menus\ExampleMultiPageMenu.class

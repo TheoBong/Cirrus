@@ -12,6 +12,7 @@ import dev.simplix.cirrus.player.CirrusPlayerWrapper;
 import dev.simplix.cirrus.service.MenuBuildService;
 import dev.simplix.cirrus.velocity.util.ComponentHelper;
 import dev.simplix.protocolize.api.Protocolize;
+import dev.simplix.protocolize.api.chat.ChatElement;
 import dev.simplix.protocolize.api.inventory.*;
 import dev.simplix.protocolize.api.item.BaseItemStack;
 import dev.simplix.protocolize.api.item.ItemStack;
@@ -71,10 +72,10 @@ public class VelocityMenuBuildService implements MenuBuildService {
   private static void setInventoryTitle(String title, Inventory inventory) {
     if (title != null) {
       Component titleComponent = ComponentHelper.removeItalic(LegacyComponentSerializer
-          .legacy('§')
+          .legacy('\u00a7')
           .deserialize(title));
 
-      inventory.title(titleComponent);
+      inventory.title(ChatElement.of(titleComponent));
     }
   }
 
@@ -136,7 +137,6 @@ public class VelocityMenuBuildService implements MenuBuildService {
         finalStack = new CirrusItem(item);
       }
 
-      ComponentHelper.fixItalic(finalStack);
       inventory.item(slot, finalStack);
     });
   }
@@ -189,7 +189,7 @@ public class VelocityMenuBuildService implements MenuBuildService {
         .map((item) -> (BaseItemStack) item)
         .toList();
     if (!alreadyOpen) {
-      player.sendPacket(new OpenWindow(windowId, inventory.type(), inventory.titleJson()));
+      player.sendPacket(new OpenWindow(windowId, inventory.type(), inventory.title()));
 
       for (int i = 0; i < itemStacks.size(); i++) {
         final ItemStack itemStack = (ItemStack) itemStacks.get(i);

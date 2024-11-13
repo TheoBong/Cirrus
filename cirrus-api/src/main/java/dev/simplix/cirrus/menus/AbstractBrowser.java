@@ -72,7 +72,7 @@ public abstract class AbstractBrowser<T> {
   }
 
   public DisplayedMenu display(CirrusPlayerWrapper player) {
-    build();
+    if (!built) build();
     return currentPage().display(player);
   }
 
@@ -163,11 +163,15 @@ public abstract class AbstractBrowser<T> {
   protected void interceptBottomRow(MenuRow bottomRow) {
   }
 
+  private boolean built = false;
+
   // ----------------------------------------------------------------------------------------------------
   // Implementation
   // ----------------------------------------------------------------------------------------------------
 
   private void build() {
+    built = true;
+
     registerActionHandlers();
 
     int maximumSizeOfAllMenus = fixedSize == null

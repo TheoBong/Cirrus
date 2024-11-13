@@ -44,6 +44,6 @@ public class VelocityPlayerWrapper implements CirrusPlayerWrapper {
 
   @Override
   public void sendMessage(String message) {
-    player.sendMessage(LegacyComponentSerializer.legacy('§').deserialize(Utils.colorize(message)));
+    player.sendMessage(LegacyComponentSerializer.legacy('\u00a7').deserialize(Utils.colorize(message)));
   }
 }
